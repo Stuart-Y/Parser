@@ -53,5 +53,10 @@ public:
 		out = "(" + tokenTypeToString(type) + "," + '"' + input + '"'+  "," + to_string(lineNumber) + ")" + '\n';
 		return out;
 	}
+	
+	TokenType getType()
+	{
+		return type;
+	}
 };
 
