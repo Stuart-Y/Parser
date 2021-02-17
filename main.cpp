@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
 
 #include "Parameter.h"
 #include "Predicate.h"
@@ -38,9 +39,10 @@ int main(int argc, char* argv[])
 
     for (int i = 0; i < lexInput.size(); i++)
     {
-        if (lexInput.at(i).getType() == COMMENT)
+        if (lexInput.at(i)->getType() == COMMENT)
         {
-
+            lexInput.erase(lexInput.begin() + i);
+            i--;
         }
     }
 
