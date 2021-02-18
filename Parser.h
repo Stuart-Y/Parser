@@ -6,6 +6,7 @@
 #include"DatalogProgram.h"
 
 using namespace std;
+
 class Parser
 {
 private:
@@ -18,22 +19,24 @@ public:
 
 	DatalogProgram Run()
 	{
-		int i = 0;
-		i = ParseSchemes(i);
-		i = ParseColon(i);
-		i = ParseScheme(i);
-		i = ParseschemeList(i);
-		i = ParseFacts(i);
-		i = ParseColon(i);
-		i = ParseFactList(i);
-		i = ParseRules(i);
-		i = ParseColon(i);
-		i = ParseRuleList(i);
-		i = ParseQueries(i);
-		i = ParseColon(i);
-		i = ParseQuery(i);
-		i = ParseQueryList(i);
-		i = ParseEndfile(i);
+		try {
+			int i = 0;
+			i = ParseSchemes(i);
+			i = ParseColon(i);
+			i = ParseScheme(i);
+			i = ParseschemeList(i);
+			i = ParseFacts(i);
+			i = ParseColon(i);
+			i = ParseFactList(i);
+			i = ParseRules(i);
+			i = ParseColon(i);
+			i = ParseRuleList(i);
+			i = ParseQueries(i);
+			i = ParseColon(i);
+			i = ParseQuery(i);
+			i = ParseQueryList(i);
+			i = ParseEndfile(i);
+		}
 		return out;
 	}
 
@@ -66,9 +69,9 @@ public:
 			startIndex++;
 		}
 		else {
-			//throw exception
+			throw program[startIndex];
 		}
-		return startIndex
+		return startIndex;
 	}
 
 	int ParsePeriod(int startIndex) {
@@ -76,7 +79,7 @@ public:
 			startIndex++;
 		}
 		else {
-			//throw exception
+			throw program[startIndex];
 		}
 		return startIndex;
 	}
@@ -86,7 +89,7 @@ public:
 			startIndex++;
 		}
 		else {
-			//throw exception
+			throw program[startIndex];
 		}
 		return startIndex;
 	}
@@ -96,7 +99,7 @@ public:
 			startIndex++;
 		}
 		else {
-			//throw exception
+			throw program[startIndex];
 		}
 		return startIndex;
 	}
@@ -106,7 +109,7 @@ public:
 			startIndex++;
 		}
 		else {
-			//throw exception
+			throw program[startIndex];
 		}
 		return startIndex;
 	}
@@ -116,7 +119,7 @@ public:
 			startIndex++;
 		}
 		else {
-			//throw error
+			throw program[startIndex];
 		}
 		return startIndex;
 	}
@@ -126,7 +129,7 @@ public:
 			startIndex++;
 		}
 		else {
-			//throw error
+			throw program[startIndex];
 		}
 		return startIndex;
 	}
@@ -136,7 +139,7 @@ public:
 			startIndex++;
 		}
 		else {
-			//throw error
+			throw program[startIndex];
 		}
 		return startIndex;
 	}
@@ -146,7 +149,7 @@ public:
 			startIndex++;
 		}
 		else {
-			//throw exception
+			throw program[startIndex];
 		}
 		return startIndex;
 	}
@@ -156,7 +159,7 @@ public:
 			startIndex++;
 		}
 		else {
-			//throw exception
+			throw program[startIndex];
 		}
 		return startIndex;
 	}
@@ -166,7 +169,7 @@ public:
 			startIndex++;
 		}
 		else {
-			//throw exception
+			throw program[startIndex];
 		}
 		return startIndex;
 	}
@@ -176,7 +179,7 @@ public:
 			startIndex++;
 		}
 		else {
-			//throw exception
+			throw program[startIndex];
 		}
 		return startIndex;
 	}
@@ -186,7 +189,7 @@ public:
 			startIndex++;
 		}
 		else {
-			//throw exception
+			throw program[startIndex];
 		}
 		return startIndex;
 	}
@@ -196,7 +199,7 @@ public:
 			startIndex++;
 		}
 		else {
-			//throw exception
+			throw program[startIndex];
 		}
 		return startIndex;
 	}
@@ -206,7 +209,7 @@ public:
 			startIndex++;
 		}
 		else {
-			//throw exception
+			throw program[startIndex];
 		}
 		return startIndex;
 	}
@@ -216,7 +219,7 @@ public:
 			startIndex++;
 		}
 		else {
-			//throw exception
+			throw program[startIndex];
 		}
 		return startIndex;
 	}

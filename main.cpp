@@ -48,6 +48,10 @@ int main(int argc, char* argv[])
     }
 
     Parser read = Parser(lexInput);
-
+    read.Run();
+    catch (Token* reject) {
+        cerr << "Failure" << program[reject]->toString() << '\n';
+        return 1;
+    }
     return 0;
 }
