@@ -15,6 +15,7 @@ private:
 public:
 	Parser(vector<Token*> program) {
 		this->program = program;
+		out = DatalogProgram();
 	}
 
 	DatalogProgram Run()
@@ -36,6 +37,9 @@ public:
 			i = ParseQuery(i);
 			i = ParseQueryList(i);
 			i = ParseEndfile(i);
+		}
+		catch(Token* error){
+			throw error;
 		}
 		return out;
 	}
@@ -133,7 +137,7 @@ public:
 	}
 
 	int ParsePredicate(int startIndex) {
-		if (program[startIndex]->getType == ID) {
+		if (program[startIndex]->getType() == ID) {
 			startIndex = ParseID(startIndex);
 			startIndex = ParseLeft(startIndex);
 			startIndex = ParseParameter(startIndex);
@@ -141,23 +145,23 @@ public:
 			startIndex = ParseRight(startIndex);
 		}
 		else {
-			throw program[sartIndex];
+			throw program[startIndex];
 		}
 		return startIndex;
 	}
 
 	int ParsePredicateList(int startIndex) {
 		if (program[startIndex]->getType() == COMMA) {
-			startIndex = ParseComma[startIndex];
-			startIndex = ParsePredicate[startIndex];
-			startIndex = ParsePredicateList[startIndex];
+			startIndex = ParseComma(startIndex);
+			startIndex = ParsePredicate(startIndex);
+			startIndex = ParsePredicateList(startIndex);
 		}
 		else if (program[startIndex]->getType() == PERIOD) {
 		}
 		else {
 			throw program[startIndex];
 		}
-		return program[startIndex];
+		return startIndex;
 	}
 
 	int ParseParameter(int startIndex) {
@@ -199,7 +203,7 @@ public:
 		else {
 			throw program[startIndex];
 		}
-		return startIndex();
+		return startIndex;
 	}
 
 	int ParseFact(int startIndex) {
@@ -246,10 +250,10 @@ public:
 			startIndex = ParseScheme(startIndex);
 			startIndex = ParseschemeList(startIndex);
 		}
-		else if (program[startIndex]->getType == RIGHT_PAREN) {
+		else if (program[startIndex]->getType() == RIGHT_PAREN) {
 		}
 		else {
-			throw Program[startIndex];
+			throw program[startIndex];
 		}
 		return startIndex;
 	}
