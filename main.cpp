@@ -29,9 +29,9 @@ int main(int argc, char* argv[])
     }
     else
     {
-        for (unsigned int i = 0; input.peek() != EOF; i++)
+        while (input.peek() != EOF)
         {
-            file = file += input.get(i);
+            file = file += input.get();
         }
     }
     input.close();
