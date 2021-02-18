@@ -29,16 +29,16 @@ int main(int argc, char* argv[])
     }
     else
     {
-        for (int i = 0; input.peek() != EOF; i++)
+        for (unsigned int i = 0; input.peek() != EOF; i++)
         {
-            file = file += input.get();
+            file = file += input.get(i);
         }
     }
     input.close();
 
     lexInput = program.Run(file);
 
-    for (int i = 0; i < lexInput.size(); i++)
+    for (unsigned int i = 0; i < lexInput.size(); i++)
     {
         if (lexInput.at(i)->getType() == COMMENT)
         {

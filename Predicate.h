@@ -3,6 +3,8 @@
 #include <string>
 
 #include "Parameter.h"
+
+using namespace std;
 class Predicate
 {
 private:
