@@ -40,28 +40,233 @@ public:
 		return out;
 	}
 
+	int ParseExpression(int startIndex) {
+		if (program[startIndex]->getType() == LEFT_PAREN) {
+			startIndex = ParseLeft(startIndex);
+			startIndex = ParseParameter(startIndex);
+			startIndex = ParseOperator(startIndex);
+			startIndex = ParseParameter(startIndex);
+			startIndex = ParseRight(startIndex);
+		}
+		else {
+			throw program[startIndex];
+		}
+		return startIndex;
+	}
+
+	int ParseOperator(int startIndex) {
+		if (program[startIndex]->getType == ADD) {
+			startIndex = ParseAdd(startIndex);
+		}
+		else if (program[startIndex]->getType() == MULTIPLY) {
+			startIndex = ParseMultiply(startIndex);
+		}
+		else {
+			throw program[startIndex];
+		}
+		return startIndex;
+	}
+
 	int ParseQueryList(int startIndex) {
-		return 0;
+		if (program[startIndex]->getType() == ID) {
+			startIndex = ParseQuery(startIndex);
+			startIndex = ParseQueryList(startIndex);
+		}
+		else if(program[startIndex]->getType == ENDFILE){
+		}
+		else {
+			throw program[startIndex];
+		}
+		return startIndex;
 	}
 
 	int ParseQuery(int startIndex) {
-		return 0;
+		if (program[startIndex]->getType() == ID) {
+			startIndex = ParsePredicate(startIndex);
+			startIndex = ParseQuestion(startIndex);
+		}
+		else {
+			throw program[startIndex];
+		}
+		return startIndex;
 	}
 
 	int ParseRuleList(int startIndex) {
-		return 0;
+		if (program[startIndex]->getType() == ID) {
+			startIndex = ParseRule(startIndex);
+			startIndex = ParseRuleList(startIndex);
+		}
+		else if (program[startIndex]->getType() == QUERIES) {
+		}
+		else {
+			throw program[startIndex];
+		}
+		return startIndex;
+	}
+
+	int ParseRule(int startIndex) {
+		if (program[startIndex]->getType()-> == ID) {
+			startIndex = ParseHeadPredicate(startIndex);
+			startIndex = ParseColonDash(startIndex);
+			startIndex = ParsePredicate(startIndex);
+			startIndex = ParsePredicateList(startIndex);
+			startIndex = ParsePeriod(startIndex);
+		}
+		else {
+			throw program[startIndex];
+		}
+		return startIndex;
+	}
+
+	int ParseHeadPredicate(int startIndex) {
+		if (program[startIndex]->getType == ID) {
+			startIndex = ParseID(startIndex);
+			startIndex = ParseLeft(startIndex);
+			startIndex = ParseID(startIndex);
+			startIndex = ParseIDList(startIndex);
+			startIndex = ParseRight(startIndex);
+		}
+		else {
+			throw program[startIndex];
+		}
+		return startIndex
+	}
+
+	int ParsePredicate(int startIndex) {
+		if (program[startIndex]->getType == ID) {
+			startIndex = ParseID(startIndex);
+			startIndex = ParseLeft(startIndex);
+			startIndex = ParseParameter(startIndex);
+			startIndex = ParseParameterList(startIndex);
+			startIndex = ParseRight(startIndex);
+		}
+		else {
+			throw program[sartIndex];
+		}
+		return startIndex;
+	}
+
+	int ParsePredicateList(int startIndex) {
+		if (program[startIndex]->getType() == COMMA) {
+			startIndex = ParseComma[startIndex];
+			startIndex = ParsePredicate[startIndex];
+			startIndex = ParsePredicateList[startIndex];
+		}
+		else if (program[startIndex]->getType() == PERIOD) {
+		}
+		else {
+			throw program[startIndex];
+		}
+		return program[startIndex];
+	}
+
+	int ParseParameter(int startIndex) {
+		if (program[startIndex]->getType() == STRING) {
+			startIndex = ParseString(startIndex);
+		}
+		else if (program[startIndex]->getType() == ID) {
+			startIndex = ParseID(startIndex);
+		}
+		else if (program[startIndex]->getType() == LEFT_PAREN) {
+			startIndex = ParseExpression(startIndex);
+		}
+		else {
+			throw program[startIndex];
+		}
+	}
+
+	int ParseParameterList(int startIndex) {
+		if (program[startIndex]->getType() == COMMA) {
+			startIndex = ParseComma(startIndex);
+			startIndex = ParseParameter(startIndex);
+			startIndex = ParseParameterList(startIndex);
+		}
+		else if (program[startIndex]->getType() == RIGHT_PAREN) {
+		}
+		else {
+			throw program[startIndex];
+		}
+		return startIndex;
 	}
 
 	int ParseFactList(int startIndex) {
-		return 0;
+		if (program[startIndex]->getType() == ID) {
+			startIndex = ParseFact(startIndex);
+			startIndex = ParseFactList(startIndex);
+		}
+		else if (program[startIndex]->getType() == PERIOD) {
+		}
+		else {
+			throw program[startIndex];
+		}
+		return startIndex();
+	}
+
+	int ParseFact(int startIndex) {
+		if (program[startIndex]->getType() == ID) {
+			startIndex = ParseID(startIndex);
+			startIndex = ParseLeft(startIndex);
+			startIndex = ParseString(startIndex);
+			startIndex = ParseStringList(startIndex);
+			startIndex = ParseRight(startIndex);
+			startIndex = ParsePeriod(startIndex);
+		}
+		else {
+			throw program[startIndex];
+		}
+		return startIndex;
+	}
+
+	int ParseStringList(int startIndex) {
+		if (program[startIndex]->getType() == COMMA)
+		{
+			startIndex = ParseComma(startIndex);
+			startIndex = ParseString(startIndex);
+			startIndex = ParseStringList(startIndex);
+		}
+		else if (program[startIndex] == RIGHT_PAREN) {
+		}
+		else {
+			throw program[startIndex];
+		}
+		return startIndex;
 	}
 
 	int ParseScheme(int startIndex) {
-		return 0;
+		startIndex = ParseID(startIndex);
+		startIndex = ParseLeft(startIndex);
+		startIndex = ParseID(startIndex);
+		startIndex = ParseIDList(startIndex);
+		startIndex = ParseRight(startIndex);
+		return startIndex;
 	}
 
 	int ParseschemeList(int startIndex) {
-		return 0;
+		if (program[startIndex]->getType() == ID) {
+			startIndex = ParseScheme(startIndex);
+			startIndex = ParseschemeList(startIndex);
+		}
+		else if (program[startIndex]->getType == RIGHT_PAREN) {
+		}
+		else {
+			throw Program[startIndex];
+		}
+		return startIndex;
+	}
+
+	int ParseIDList(int startIndex) {
+		if (program[startIndex]->getType() == COMMA) {
+			startIndex = ParseComma(startIndex);
+			startIndex = ParseID(startIndex);
+			startIndex = ParseIDList(startIndex);
+		}
+		else if (program[startIndex] == RIGHT_PAREN) {
+			return startIndex;
+		}
+		else {
+			throw program[startIndex];
+		}
+		return startIndex;
 	}
 
 	int ParseComma(int startIndex) {
