@@ -38,9 +38,6 @@ public:
 			i = ParseQueryList(i);
 			i = ParseEndfile(i);
 		}
-		catch(Token* error){
-			throw error;
-		}
 		return out;
 	}
 
