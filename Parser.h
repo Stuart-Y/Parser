@@ -5,6 +5,7 @@
 #include"Token.h"
 #include"DatalogProgram.h"
 
+using namespace std;
 class Parser
 {
 private:
