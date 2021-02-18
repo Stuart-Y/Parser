@@ -59,7 +59,7 @@ public:
 	}
 
 	int ParseOperator(int startIndex) {
-		if (program[startIndex]->getType == ADD) {
+		if (program[startIndex]->getType() == ADD) {
 			startIndex = ParseAdd(startIndex);
 		}
 		else if (program[startIndex]->getType() == MULTIPLY) {
@@ -76,7 +76,7 @@ public:
 			startIndex = ParseQuery(startIndex);
 			startIndex = ParseQueryList(startIndex);
 		}
-		else if(program[startIndex]->getType == ENDFILE){
+		else if(program[startIndex]->getType() == ENDFILE){
 		}
 		else {
 			throw program[startIndex];
@@ -109,7 +109,7 @@ public:
 	}
 
 	int ParseRule(int startIndex) {
-		if (program[startIndex]->getType()-> == ID) {
+		if (program[startIndex]->getType() == ID) {
 			startIndex = ParseHeadPredicate(startIndex);
 			startIndex = ParseColonDash(startIndex);
 			startIndex = ParsePredicate(startIndex);
@@ -123,7 +123,7 @@ public:
 	}
 
 	int ParseHeadPredicate(int startIndex) {
-		if (program[startIndex]->getType == ID) {
+		if (program[startIndex]->getType() == ID) {
 			startIndex = ParseID(startIndex);
 			startIndex = ParseLeft(startIndex);
 			startIndex = ParseID(startIndex);
@@ -133,7 +133,7 @@ public:
 		else {
 			throw program[startIndex];
 		}
-		return startIndex
+		return startIndex;
 	}
 
 	int ParsePredicate(int startIndex) {
@@ -177,6 +177,7 @@ public:
 		else {
 			throw program[startIndex];
 		}
+		return startIndex;
 	}
 
 	int ParseParameterList(int startIndex) {
@@ -228,7 +229,7 @@ public:
 			startIndex = ParseString(startIndex);
 			startIndex = ParseStringList(startIndex);
 		}
-		else if (program[startIndex] == RIGHT_PAREN) {
+		else if (program[startIndex]->getType() == RIGHT_PAREN) {
 		}
 		else {
 			throw program[startIndex];
@@ -264,7 +265,7 @@ public:
 			startIndex = ParseID(startIndex);
 			startIndex = ParseIDList(startIndex);
 		}
-		else if (program[startIndex] == RIGHT_PAREN) {
+		else if (program[startIndex]->getType() == RIGHT_PAREN) {
 			return startIndex;
 		}
 		else {
