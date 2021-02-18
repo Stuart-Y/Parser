@@ -38,6 +38,10 @@ public:
 			i = ParseQueryList(i);
 			i = ParseEndfile(i);
 		}
+		catch (Token* reject) {
+			cerr << "Failure" << program[reject]->toString() << '\n';
+			return out;
+		}
 		return out;
 	}
 
