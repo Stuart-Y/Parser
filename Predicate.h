@@ -19,5 +19,18 @@ public:
 	void AddContents(Parameter* add) {
 		contents.push_back(add);
 	}
+
+	string ToString() {
+		string out;
+		out = id + "(";
+		for (unsigned int i = 0; i < contents.size(); i++)
+		{
+			out = out + contents[i]->ToString();
+			if (i + 1 != contents.size()) {
+				out = out + ",";
+			}
+		}
+		return out;
+	}
 };
 
