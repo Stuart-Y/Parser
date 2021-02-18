@@ -10,6 +10,7 @@ class Parser
 {
 private:
 	vector<Token*> program;
+	DatalogProgram out;
 public:
 	Parser(vector<Token*> program) {
 		this->program = program;
@@ -32,6 +33,7 @@ public:
 		ParseQuery();
 		ParseQueryList();
 		ParseEndfile();
+		return out;
 	}
 
 	void ParseQueryList() {
