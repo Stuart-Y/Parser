@@ -47,7 +47,7 @@ int main(int argc, char* argv[])
         }
     }
 
-    Parser read = Parser();
+    Parser read = Parser(lexInput);
 
     return 0;
 }
