@@ -9,6 +9,7 @@
 #include "DatalogProgram.h"
 #include "Lexer.h"
 #include "Token.h"
+#include "Parser.h"
 
 using namespace std;
 
@@ -45,6 +46,8 @@ int main(int argc, char* argv[])
             i--;
         }
     }
+
+    Parser read = Parser();
 
     return 0;
 }

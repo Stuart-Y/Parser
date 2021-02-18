@@ -78,12 +78,14 @@
     <ClCompile Include="DatalogProgram.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Parameter.cpp" />
+    <ClCompile Include="Parser.cpp" />
     <ClCompile Include="Predicate.cpp" />
     <ClCompile Include="Rule.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DatalogProgram.h" />
     <ClInclude Include="Parameter.h" />
+    <ClInclude Include="Parser.h" />
     <ClInclude Include="Predicate.h" />
     <ClInclude Include="Rule.h" />
   </ItemGroup>
