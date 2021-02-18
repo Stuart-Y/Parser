@@ -18,114 +18,207 @@ public:
 
 	DatalogProgram Run()
 	{
-		ParseSchemes();
-		ParseColon();
-		ParseScheme();
-		ParseschemeList();
-		ParseFacts();
-		ParseColon();
-		ParseFactList();
-		ParseRules();
-		ParseColon();
-		ParseRuleList();
-		ParseQueries();
-		ParseColon();
-		ParseQuery();
-		ParseQueryList();
-		ParseEndfile();
+		int i = 0;
+		i = ParseSchemes(i);
+		i = ParseColon(i);
+		i = ParseScheme(i);
+		i = ParseschemeList(i);
+		i = ParseFacts(i);
+		i = ParseColon(i);
+		i = ParseFactList(i);
+		i = ParseRules(i);
+		i = ParseColon(i);
+		i = ParseRuleList(i);
+		i = ParseQueries(i);
+		i = ParseColon(i);
+		i = ParseQuery(i);
+		i = ParseQueryList(i);
+		i = ParseEndfile(i);
 		return out;
 	}
 
-	void ParseQueryList() {
-
+	int ParseQueryList(int startIndex) {
+		return 0;
 	}
 
-	void ParseQuery() {
-
+	int ParseQuery(int startIndex) {
+		return 0;
 	}
 
-	void ParseRuleList() {
-
+	int ParseRuleList(int startIndex) {
+		return 0;
 	}
 
-	void ParseFactList() {
-
+	int ParseFactList(int startIndex) {
+		return 0;
 	}
 
-	void ParseScheme() {
-
+	int ParseScheme(int startIndex) {
+		return 0;
 	}
 
-	void ParseschemeList() {
-
+	int ParseschemeList(int startIndex) {
+		return 0;
 	}
 
-	void ParseComma() {
-
+	int ParseComma(int startIndex) {
+		if (program[startIndex] == COMMA) {
+			startIndex++;
+		}
+		else {
+			//throw exception
+		}
+		return startIndex
 	}
 
-	void ParsePeriod() {
-
+	int ParsePeriod(int startIndex) {
+		if (program[startIndex] == PERIOD) {
+			startIndex++;
+		}
+		else {
+			//throw exception
+		}
+		return startIndex;
 	}
 
-	void ParseQuestion() {
-
+	int ParseQuestion(int startIndex) {
+		if (program[startIndex] == Q_MARK) {
+			startIndex++;
+		}
+		else {
+			//throw exception
+		}
+		return startIndex;
 	}
 
-	void ParseLeft() {
-
+	int ParseLeft(int startIndex) {
+		if (program[startIndex] == LEFT_PAREN) {
+			startIndex++;
+		}
+		else {
+			//throw exception
+		}
+		return startIndex;
 	}
 
-	void ParseRight() {
-
+	int ParseRight(int startIndex) {
+		if (program[startIndex] == RIGHT_PAREN) {
+			startIndex++;
+		}
+		else {
+			//throw exception
+		}
+		return startIndex;
 	}
 
-	void ParseColon() {
-
+	int ParseColon(int startIndex) {
+		if (program[startIndex] == COLON) {
+			startIndex++;
+		}
+		else {
+			//throw error
+		}
+		return startIndex;
 	}
 
-	void ParseColonDash() {
-
+	int ParseColonDash(int startIndex) {
+		if (program[startIndex] == COLON_DASH) {
+			startIndex++;
+		}
+		else {
+			//throw error
+		}
+		return startIndex;
 	}
 
-	void ParseMultiply() {
-
+	int ParseMultiply(int startIndex) {
+		if (program[startIndex] == MULTIPLY) {
+			startIndex++;
+		}
+		else {
+			//throw error
+		}
+		return startIndex;
 	}
 
-	void ParseAdd() {
-
+	int ParseAdd(int startIndex) {
+		if (program[startIndex] == ADD) {
+			startIndex++;
+		}
+		else {
+			//throw exception
+		}
+		return startIndex;
 	}
 
-	void ParseSchemes() {
-
+	int ParseSchemes(int startIndex) {
+		if (program[startIndex] == SCHEMES) {
+			startIndex++;
+		}
+		else {
+			//throw exception
+		}
+		return startIndex
 	}
 
-	void ParseFacts() {
-
+	int ParseFacts(int startIndex) {
+		if (program[startIndex] == FACTS) {
+			startIndex++;
+		}
+		else {
+			//throw exception
+		}
+		return startIndex;
 	}
 
-	void ParseRules() {
-
+	int ParseRules(int startIndex) {
+		if (program[startIndex] == RULES) {
+			startIndex++;
+		}
+		else {
+			//throw exception
+		}
+		return startIndex;
 	}
 
-	void ParseQueries() {
-
+	int ParseQueries(int startIndex) {
+		if (program[startIndex] == QUERIES) {
+			startIndex++;
+		}
+		else {
+			//throw exception
+		}
+		return startIndex;
 	}
 
-	void ParseID() {
-
+	int ParseID(int startIndex) {
+		if (program[startIndex] == ID) {
+			startIndex++;
+		}
+		else {
+			//throw exception
+		}
+		return startIndex;
 	}
 
-	void ParseString() {
-
+	int ParseString(int startIndex) {
+		if (program[startIndex] == STRING){
+			startIndex++;
+		}
+		else {
+			//throw exception
+		}
+		return startIndex;
 	}
 
-	void ParseComment() {
-
-	}
-
-	void ParseEndfile() {
-
+	int ParseEndfile(int startIndex) {
+		if (program[startIndex] == ENDFILE) {
+			startIndex++;
+		}
+		else {
+			//throw exception
+		}
+		return startIndex;
 	}
 };
 
