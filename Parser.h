@@ -39,7 +39,8 @@ public:
 			i = ParseEndfile(i);
 		}
 		catch (Token* reject) {
-			cerr << "Failure" << program[reject]->toString() << '\n';
+			cerr << "Failure" << reject->toString() << '\n';
+			throw reject;
 			return out;
 		}
 		return out;
