@@ -62,7 +62,7 @@ public:
 	}
 
 	int ParseComma(int startIndex) {
-		if (program[startIndex] == COMMA) {
+		if (program[startIndex]->getType() == COMMA) {
 			startIndex++;
 		}
 		else {
@@ -72,7 +72,7 @@ public:
 	}
 
 	int ParsePeriod(int startIndex) {
-		if (program[startIndex] == PERIOD) {
+		if (program[startIndex]->getType() == PERIOD) {
 			startIndex++;
 		}
 		else {
@@ -82,7 +82,7 @@ public:
 	}
 
 	int ParseQuestion(int startIndex) {
-		if (program[startIndex] == Q_MARK) {
+		if (program[startIndex]->getType() == Q_MARK) {
 			startIndex++;
 		}
 		else {
@@ -92,7 +92,7 @@ public:
 	}
 
 	int ParseLeft(int startIndex) {
-		if (program[startIndex] == LEFT_PAREN) {
+		if (program[startIndex]->getType() == LEFT_PAREN) {
 			startIndex++;
 		}
 		else {
@@ -102,7 +102,7 @@ public:
 	}
 
 	int ParseRight(int startIndex) {
-		if (program[startIndex] == RIGHT_PAREN) {
+		if (program[startIndex]->getType() == RIGHT_PAREN) {
 			startIndex++;
 		}
 		else {
@@ -112,7 +112,7 @@ public:
 	}
 
 	int ParseColon(int startIndex) {
-		if (program[startIndex] == COLON) {
+		if (program[startIndex]->getType() == COLON) {
 			startIndex++;
 		}
 		else {
@@ -122,7 +122,7 @@ public:
 	}
 
 	int ParseColonDash(int startIndex) {
-		if (program[startIndex] == COLON_DASH) {
+		if (program[startIndex]->getType() == COLON_DASH) {
 			startIndex++;
 		}
 		else {
@@ -132,7 +132,7 @@ public:
 	}
 
 	int ParseMultiply(int startIndex) {
-		if (program[startIndex] == MULTIPLY) {
+		if (program[startIndex]->getType() == MULTIPLY) {
 			startIndex++;
 		}
 		else {
@@ -142,7 +142,7 @@ public:
 	}
 
 	int ParseAdd(int startIndex) {
-		if (program[startIndex] == ADD) {
+		if (program[startIndex]->getType() == ADD) {
 			startIndex++;
 		}
 		else {
@@ -152,17 +152,17 @@ public:
 	}
 
 	int ParseSchemes(int startIndex) {
-		if (program[startIndex] == SCHEMES) {
+		if (program[startIndex]->getType() == SCHEMES) {
 			startIndex++;
 		}
 		else {
 			//throw exception
 		}
-		return startIndex
+		return startIndex;
 	}
 
 	int ParseFacts(int startIndex) {
-		if (program[startIndex] == FACTS) {
+		if (program[startIndex]->getType() == FACTS) {
 			startIndex++;
 		}
 		else {
@@ -172,7 +172,7 @@ public:
 	}
 
 	int ParseRules(int startIndex) {
-		if (program[startIndex] == RULES) {
+		if (program[startIndex]->getType() == RULES) {
 			startIndex++;
 		}
 		else {
@@ -182,7 +182,7 @@ public:
 	}
 
 	int ParseQueries(int startIndex) {
-		if (program[startIndex] == QUERIES) {
+		if (program[startIndex]->getType() == QUERIES) {
 			startIndex++;
 		}
 		else {
@@ -192,7 +192,7 @@ public:
 	}
 
 	int ParseID(int startIndex) {
-		if (program[startIndex] == ID) {
+		if (program[startIndex]->getType() == ID) {
 			startIndex++;
 		}
 		else {
@@ -202,7 +202,7 @@ public:
 	}
 
 	int ParseString(int startIndex) {
-		if (program[startIndex] == STRING){
+		if (program[startIndex]->getType() == STRING){
 			startIndex++;
 		}
 		else {
@@ -212,7 +212,7 @@ public:
 	}
 
 	int ParseEndfile(int startIndex) {
-		if (program[startIndex] == ENDFILE) {
+		if (program[startIndex]->getType() == ENDFILE) {
 			startIndex++;
 		}
 		else {
