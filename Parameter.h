@@ -11,7 +11,7 @@ public:
 	}
 
 	string ToString() {
-		return data->inputString;
+		return data->inputString();
 	}
 };
 

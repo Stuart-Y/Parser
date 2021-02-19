@@ -99,25 +99,25 @@ public:
 	string ToString() {
 		string out;
 		out = "Schemes(" + schemes.size() +"):";
-		for (unsigned int i = 0; i < schemes.size(); i++) {
+		for (unsigned int i = 0; i < to_string(schemes.size()); i++) {
 			out = out + "\n" + "  " + schemes[i]->ToString();
 		}
 		out = out + "\n" + "Facts(" +  facts.size() +"):";
-		for (unsigned int i = 0; i < facts.size(); i++)
+		for (unsigned int i = 0; i < to_string(facts.size()); i++)
 		{
 			out = out + "\n" + "  " + facts[i]->ToString() + ".";
 		}
-		out = out + "\n" + "Rules(" + rules.size() + "):";
+		out = out + "\n" + "Rules(" + to_string(rules.size()) + "):";
 		for (unsigned int i = 0; i < rules.size(); i++)
 		{
 			out = out + "\n" + "  " + rules[i]->ToString();
 		}
-		out = out + "\n" + "Queries(" + queries.size() + "):";
+		out = out + "\n" + "Queries(" + to_string(queries.size()) + "):";
 		for (unsigned int i = 0; i < queries.size(); i++)
 		{
 			out = out + "\n" + "  " + queries[i]->ToString() + "?"; 
 		}
-		out = out + "\n" + "Domain(" + domain.size() +"):";
+		out = out + "\n" + "Domain(" + to_string(domain.size()) +"):";
 		for (unsigned int i = 0; i < domain.size(); i++) {
 			out = out + "\n" + domain[i]->ToString();
 		}

@@ -17,7 +17,7 @@ public:
 	}
 
 	void AddContents(Token* data) {
-		Parameter add = new Parameter(data);
+		Parameter(data) add;
 		contents.push_back(add);
 	}
 

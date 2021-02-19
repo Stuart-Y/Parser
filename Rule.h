@@ -35,14 +35,14 @@ public:
 	string ToString(){
 		string out;
 	out = id + "(";
-	for (unsigned int i = 0; i < idList.size(); i++) {
+	for (int i = 0; i < idList.size(); i++) {
 		out = out + idlist[i]->inputString();
 		if (i + 1 != idList.size()) {
 			out = out + ",";
 		}
 	}
 	out = out + ") :- ";
-	for (unsigned int i = 0; i < predicateList.size(); i++)
+	for (int i = 0; i < predicateList.size(); i++)
 	{
 		out = out + predicateList[i]->ToString();
 		if (i + 1 != predicateList.size())
@@ -50,7 +50,7 @@ public:
 			out = out + ",";
 		}
 		else {
-			out = out + "."
+			out = out + ".";
 		}
 	}
 	return out;
