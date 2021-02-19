@@ -31,21 +31,21 @@ public:
 
 	void AddScheme(string id) {
 		Predicate create = Predicate(id);
-		Predicate* add = create;
+		Predicate* add -> create;
 		schemes.push_back(add);
 		last = scheme;
 	}
 
 	void AddFact(string id) {
 		Predicate create = Predicate(id);
-		Predicate* add = create;
+		Predicate* add -> create;
 		facts.push_back(add);
 		last = add;
 	}
 
 	void AddQuery(string id) {
 		Predicate create = Predicate(id);
-		Predicate* add = create;
+		Predicate* add -> create;
 		queries.push_back(add);
 		last = add;
 	}

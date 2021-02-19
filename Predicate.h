@@ -17,7 +17,8 @@ public:
 	}
 
 	void AddContents(Token* data) {
-		Parameter* add = &Parameter(data);
+		Predicate create = Predicate(data);
+		Parameter* add -> create;
 		contents.push_back(add);
 	}
 
