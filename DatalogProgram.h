@@ -30,20 +30,17 @@ public:
 	}
 
 	void AddScheme(string id) {
-		Predicate scheme = new Predicate(id);
-		schemes.push_back(scheme);
+		schemes.push_back(Predicate(id));
 		last = &scheme;
 	}
 
 	void AddFact(string id) {
-		Predicate fact = new Predicate(id);
-		facts.push_back(fact);
+		facts.push_back(Predicate(id));
 		last = &fact
 	}
 
 	void AddQuery(string id) {
-		Predicate query = new Predicate(id);
-		queries.push_back(query);
+		queries.push_back(Predicate(id));
 		last = &query;
 	}
 
