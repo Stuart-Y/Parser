@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "Parameter.h"
+#include "Predicate.h"
 class Rule
 {
 private:
@@ -35,8 +36,8 @@ public:
 	string ToString(){
 		string out;
 	out = id + "(";
-	for (int i = 0; i < idList.size(); i++) {
-		out = out + idlist[i]->inputString();
+	for (unsigned int i = 0; i < idList.size(); i++) {
+		out = out + idList[i]->inputString();
 		if (i + 1 != idList.size()) {
 			out = out + ",";
 		}
