@@ -30,21 +30,24 @@ public:
 	}
 
 	void AddScheme(string id) {
-		Predicate* add = &Predicate(id)
+		Predicate create = Predicate(id);
+		Predicate* add = create;
 		schemes.push_back(add);
-		last = &scheme;
+		last = scheme;
 	}
 
 	void AddFact(string id) {
-		Predicate* add = &Predicate(id);
+		Predicate create = Predicate(id);
+		Predicate* add = create;
 		facts.push_back(add);
-		last = &fact
+		last = add;
 	}
 
 	void AddQuery(string id) {
-		Predicate* add = &Predicate(id);
+		Predicate create = Predicate(id);
+		Predicate* add = create;
 		queries.push_back(add);
-		last = &query;
+		last = add;
 	}
 
 	void AddRule(Rule* rule) {
@@ -102,8 +105,8 @@ public:
 		for (unsigned int i = 0; i < schemes.size(); i++) {
 			out = out + "\n" + "  " + schemes[i]->ToString();
 		}
-		out = out + "\n" + "Facts(" +  facts.size() +"):";
-		for (unsigned int i = 0; i < to_string(facts.size()); i++)
+		out = out + "\n" + "Facts(" + to_string(facts.size()) +"):";
+		for (unsigned int i = 0; i < (facts.size(); i++)
 		{
 			out = out + "\n" + "  " + facts[i]->ToString() + ".";
 		}
