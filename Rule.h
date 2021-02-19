@@ -13,15 +13,23 @@ public:
 		vector <Token*> newIDList;
 		vector <Predicate*> newPredicateList;
 		idList = newIDList;
-		parameterList = newPredicateList;
+		predicateList = newPredicateList;
 	}
 
 	void AddID(Token* add) {
 		idList.push_back(add);
 	}
 
-	void AddPredicate(Predicate* add) {
+	void AddPredicate(string id) {
+		Predicate add = new Predicate(id)
 		predicateList.push_back(add);
+	}
+
+	void  AddContent(Token* add)
+	{
+		int i = 0;
+		i = predicateList.size() - 1;
+		predicateList[i]->AddContents(add);
 	}
 
 	string ToString(){
@@ -45,7 +53,6 @@ public:
 			out = out + "."
 		}
 	}
-	//print parameterlist
 	return out;
 	}
 };

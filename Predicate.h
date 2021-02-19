@@ -16,7 +16,8 @@ public:
 		contents = newContents;
 	}
 
-	void AddContents(Parameter* add) {
+	void AddContents(Token* data) {
+		Parameter add = new Parameter(data);
 		contents.push_back(add);
 	}
 
