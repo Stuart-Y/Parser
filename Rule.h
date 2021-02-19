@@ -22,7 +22,7 @@ public:
 	}
 
 	void AddPredicate(string id) {
-		Predicate add = new Predicate(id)
+		Predicate* add = &Predicate(id);
 		predicateList.push_back(add);
 	}
 
