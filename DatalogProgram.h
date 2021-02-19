@@ -98,8 +98,8 @@ public:
 
 	string ToString() {
 		string out;
-		out = "Schemes(" + schemes.size() +"):";
-		for (unsigned int i = 0; i < to_string(schemes.size()); i++) {
+		out = "Schemes(" + to_string(schemes.size()) +"):";
+		for (unsigned int i = 0; i < schemes.size(); i++) {
 			out = out + "\n" + "  " + schemes[i]->ToString();
 		}
 		out = out + "\n" + "Facts(" +  facts.size() +"):";

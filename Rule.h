@@ -43,7 +43,7 @@ public:
 		}
 	}
 	out = out + ") :- ";
-	for (int i = 0; i < predicateList.size(); i++)
+	for (unsigned int i = 0; i < predicateList.size(); i++)
 	{
 		out = out + predicateList[i]->ToString();
 		if (i + 1 != predicateList.size())
