@@ -30,24 +30,18 @@ public:
 	}
 
 	void AddScheme(string id) {
-		Predicate create = Predicate(id);
-		Predicate* add -> create;
-		schemes.push_back(add);
-		last = scheme;
+		schemes.push_back(new Predicate(id));
+		last = schemes[schemes.size() - 1];
 	}
 
 	void AddFact(string id) {
-		Predicate create = Predicate(id);
-		Predicate* add -> create;
-		facts.push_back(add);
-		last = add;
+		facts.push_back(new Predicate(id));
+		last = facts[facts.size() - 1];
 	}
 
 	void AddQuery(string id) {
-		Predicate create = Predicate(id);
-		Predicate* add -> create;
-		queries.push_back(add);
-		last = add;
+		queries.push_back(new Predicate(id));
+		last = queries[queries.size() - 1];
 	}
 
 	void AddRule(Rule* rule) {
@@ -81,7 +75,7 @@ public:
 		else
 		{
 			i = queries.size() - 1;
-			Predicate add = new Predicate(data->inputString);
+			Predicate add = Predicate(data->inputString());
 		}
 	}
 
@@ -106,7 +100,7 @@ public:
 			out = out + "\n" + "  " + schemes[i]->ToString();
 		}
 		out = out + "\n" + "Facts(" + to_string(facts.size()) +"):";
-		for (unsigned int i = 0; i < (facts.size(); i++)
+		for (unsigned int i = 0; i < facts.size(); i++)
 		{
 			out = out + "\n" + "  " + facts[i]->ToString() + ".";
 		}
