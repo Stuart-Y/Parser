@@ -255,7 +255,7 @@ public:
 			startIndex = ParseScheme(startIndex);
 			startIndex = ParseschemeList(startIndex);
 		}
-		else if (program[startIndex-1F]->getType() == RIGHT_PAREN) {
+		else if (program[startIndex-1]->getType() == RIGHT_PAREN) {
 		}
 		else {
 			throw program[startIndex];
