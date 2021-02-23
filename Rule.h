@@ -22,9 +22,7 @@ public:
 	}
 
 	void AddPredicate(string id) {
-		Predicate create = Predicate(id);
-		Predicate* add -> create;
-		predicateList.push_back(add);
+		predicateList.push_back(new Predicate(id));
 	}
 
 	void  AddContent(Token* add)
