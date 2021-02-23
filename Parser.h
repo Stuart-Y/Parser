@@ -242,7 +242,7 @@ public:
 
 	int ParseScheme(int startIndex) {
 		startIndex = ParseID(startIndex);
-		//out.AddScheme(program[startIndex - 1]->inputString());
+		out.AddScheme(program[startIndex - 1]->inputString());
 		startIndex = ParseLeft(startIndex);
 		startIndex = ParseID(startIndex);
 		startIndex = ParseIDList(startIndex);

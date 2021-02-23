@@ -59,7 +59,7 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    cout << "Success!" << "/n" << out.ToString();
+    cout << "Success!" << "\n" << out.ToString();
 
     return 0;
 }
