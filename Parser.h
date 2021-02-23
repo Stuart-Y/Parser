@@ -410,7 +410,7 @@ public:
 
 	int ParseID(int startIndex) {
 		if (program[startIndex]->getType() == ID) {
-			//out.AddID(program[startIndex]);
+			out.AddID(program[startIndex]);
 			startIndex++;
 		}
 		else {
