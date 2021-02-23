@@ -53,7 +53,7 @@ int main(int argc, char* argv[])
 
     Parser read = Parser(lexInput);
     try {
-        out = read.Run();
+        out = &read.Run();
     }
     catch (Token* reject) {
         return 1;
