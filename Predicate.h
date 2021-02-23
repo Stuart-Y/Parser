@@ -30,7 +30,7 @@ public:
 				out = out + ",";
 			}
 		}
-		out = out + ")"
+		out = out + ")";
 		return out;
 	}
 };
