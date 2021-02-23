@@ -9,7 +9,7 @@ private:
 	vector <Predicate*> predicateList;
 public:
 	Rule(string id) {
-		headPredicate = Predicate(id);
+		headPredicate = new Predicate(id);
 		vector <Predicate*> newPredicateList;
 		predicateList = newPredicateList;
 	}
@@ -37,13 +37,7 @@ public:
 
 	string ToString(){
 		string out;
-	out = headPredicate.getName() + "(";
-	for (unsigned int i = 0; i < headPredicate.size(); i++) {
-		out = out + idList[i]->inputString();
-		if (i + 1 != headPredicate.size()) {
-			out = out + ",";
-		}
-	}
+		out = headPredicate->ToString();
 	out = out + ") :- ";
 	for (unsigned int i = 0; i < predicateList.size(); i++)
 	{

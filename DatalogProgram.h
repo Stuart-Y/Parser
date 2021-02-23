@@ -75,7 +75,7 @@ public:
 		}
 		else if (queries[queries.size() - 1]->getName() == "NULL")
 		{
-			queries[queries.size() - 1]->AddName(data->inputString())
+			queries[queries.size() - 1]->AddName(data->inputString());
 		}
 		else if (queries.size() > 0) {
 			queries[queries.size() - 1]->AddContents(data);
