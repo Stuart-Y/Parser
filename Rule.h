@@ -8,8 +8,10 @@ private:
 	Predicate headPredicate;
 	vector <Predicate*> predicateList;
 public:
+
 	Rule(string id)
-	{//headPredicate = Predicate(id);
+	{
+		headPredicate = Predicate(id);
 		vector <Predicate*> newPredicateList;
 		predicateList = newPredicateList;
 	}
