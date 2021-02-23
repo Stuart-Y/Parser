@@ -141,7 +141,7 @@ public:
 	int ParsePredicate(int startIndex) {
 		if (program[startIndex]->getType() == ID) {
 			startIndex = ParseID(startIndex);
-			out.AddPredicate(program[startIndex - 1]);
+			//out.AddPredicate(program[startIndex - 1]);
 			startIndex = ParseLeft(startIndex);
 			startIndex = ParseParameter(startIndex);
 			startIndex = ParseParameterList(startIndex);
@@ -242,7 +242,7 @@ public:
 
 	int ParseScheme(int startIndex) {
 		startIndex = ParseID(startIndex);
-		out.AddScheme(program[startIndex - 1]->inputString());
+		//out.AddScheme(program[startIndex - 1]->inputString());
 		startIndex = ParseLeft(startIndex);
 		startIndex = ParseID(startIndex);
 		startIndex = ParseIDList(startIndex);
@@ -410,7 +410,7 @@ public:
 
 	int ParseID(int startIndex) {
 		if (program[startIndex]->getType() == ID) {
-			out.AddID(program[startIndex]);
+			//out.AddID(program[startIndex]);
 			startIndex++;
 		}
 		else {
@@ -422,7 +422,7 @@ public:
 	int ParseString(int startIndex) {
 		if (program[startIndex]->getType() == STRING){
 			startIndex++;
-			out.AddString(program[startIndex]);
+			//out.AddString(program[startIndex]);
 		}
 		else {
 			throw program[startIndex];

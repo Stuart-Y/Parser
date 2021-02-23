@@ -20,6 +20,7 @@ int main(int argc, char* argv[])
     string file;
     vector <Token*> lexInput;
     Lexer program = Lexer();
+    DatalogProgram* out;
 
     input.open(fileName);
 
@@ -37,6 +38,7 @@ int main(int argc, char* argv[])
     input.close();
 
     lexInput = program.Run(file);
+    cout << lexInput.size() <<"\n";
 
     for (unsigned int i = 0; i < lexInput.size(); i++)
     {
@@ -47,12 +49,17 @@ int main(int argc, char* argv[])
         }
     }
 
+    cout << lexInput.size() << "\n";
+
     Parser read = Parser(lexInput);
     try {
-        read.Run();
+        out = read.Run();
     }
     catch (Token* reject) {
         return 1;
     }
+
+    cout << "Success!" << "/n" << out;
+
     return 0;
 }
