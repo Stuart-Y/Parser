@@ -143,8 +143,8 @@ public:
 
 	int ParsePredicate(int startIndex) {
 		if (program[startIndex]->getType() == ID) {
+			out.AddPredicate(Program[startIndex]);
 			startIndex = ParseID(startIndex);
-			//out.AddPredicate(program[startIndex - 1]);
 			startIndex = ParseLeft(startIndex);
 			startIndex = ParseParameter(startIndex);
 			startIndex = ParseParameterList(startIndex);
@@ -426,7 +426,7 @@ public:
 	int ParseString(int startIndex) {
 		if (program[startIndex]->getType() == STRING){
 			startIndex++;
-			//out.AddString(program[startIndex]);
+			out.AddString(program[startIndex]);
 		}
 		else {
 			throw program[startIndex];

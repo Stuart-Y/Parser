@@ -80,13 +80,13 @@ public:
 		else if (queries.size() > 0) {
 			queries[queries.size() - 1]->AddContents(data);
 		}
-		cout << "ERROR: Improper ID assignment" << "\n";
+		else {
+			cout << "ERROR: Improper ID assignment" << "\n";
+		}
 	}
 
 	void AddString(Token* data) {
-		int i = 0;
-		i = facts.size() - 1;
-		facts[i]->AddContents(data);
+		facts[facts.size() - 1]->AddContents(data);
 	}
 
 	void AddPredicate(Token* data) {
