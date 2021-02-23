@@ -88,7 +88,7 @@ public:
 
 	int ParseQuery(int startIndex) {
 		if (program[startIndex]->getType() == ID) {
-			out.AddQuery("NULL";)
+			out.AddQuery("NULL");
 			startIndex = ParsePredicate(startIndex);
 			startIndex = ParseQuestion(startIndex);
 		}

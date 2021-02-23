@@ -65,7 +65,7 @@ public:
 		{
 			rules[rules.size() - 1]->AddHeadContent(data);
 		}
-		else if (rules[rules.size() - 1]->needName)
+		else if (rules[rules.size() - 1]->needName())
 		{
 			rules[rules.size() - 1]->AddID(data->inputString());
 		}
@@ -73,7 +73,7 @@ public:
 		{
 			rules[rules.size() - 1]->AddContent(data);
 		}
-		else if (queries[queries.size() - 1]->getName == "NULL")
+		else if (queries[queries.size() - 1]->getName() == "NULL")
 		{
 			queries[queries.size() - 1]->AddName(data->inputString())
 		}

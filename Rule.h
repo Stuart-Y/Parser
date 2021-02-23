@@ -9,7 +9,7 @@ private:
 	vector <Predicate*> predicateList;
 public:
 	Rule(string id) {
-		headPredicate.AddName(id);
+		headPredicate = Predicate(id);
 		vector <Predicate*> newPredicateList;
 		predicateList = newPredicateList;
 	}
@@ -27,7 +27,7 @@ public:
 	}
 
 	void AddID(string id) {
-		predicateList[predicateList.size() - 1]->AddName();
+		predicateList[predicateList.size() - 1]->AddName(id);
 	}
 
 	void  AddContent(Token* add)
@@ -37,10 +37,10 @@ public:
 
 	string ToString(){
 		string out;
-	out = id + "(";
-	for (unsigned int i = 0; i < idList.size(); i++) {
+	out = headPredicate.getName() + "(";
+	for (unsigned int i = 0; i < headPredicate.size(); i++) {
 		out = out + idList[i]->inputString();
-		if (i + 1 != idList.size()) {
+		if (i + 1 != headPredicate.size()) {
 			out = out + ",";
 		}
 	}
