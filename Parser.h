@@ -102,7 +102,7 @@ public:
 			startIndex = ParseRule(startIndex);
 			startIndex = ParseRuleList(startIndex);
 		}
-		else if (program[startIndex-1]->getType() == QUERIES) {
+		else if (program[startIndex]->getType() == QUERIES) {
 		}
 		else {
 			throw program[startIndex];
