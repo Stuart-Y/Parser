@@ -5,31 +5,34 @@
 class Rule
 {
 private:
-	string id;
-	vector <Token*> idList;
+	Predicate headPredicate;
 	vector <Predicate*> predicateList;
 public:
 	Rule(string id) {
-		this->id = id;
-		vector <Token*> newIDList;
+		headPredicate.AddName(id);
 		vector <Predicate*> newPredicateList;
-		idList = newIDList;
 		predicateList = newPredicateList;
 	}
 
-	void AddID(Token* add) {
-		idList.push_back(add);
+	void AddHeadID(string id) {
+		headPredicate.AddName(id);
+	}
+
+	void AddHeadContent(Token* add) {
+		headPredicate.AddContents(add);
 	}
 
 	void AddPredicate(string id) {
 		predicateList.push_back(new Predicate(id));
 	}
 
+	void AddID(string id) {
+		predicateList[predicateList.size() - 1]->AddName();
+	}
+
 	void  AddContent(Token* add)
 	{
-		int i = 0;
-		i = predicateList.size() - 1;
-		predicateList[i]->AddContents(add);
+		predicateList[predicateList.size() -1 ]->AddContents(add);
 	}
 
 	string ToString(){
@@ -54,6 +57,30 @@ public:
 		}
 	}
 	return out;
+	}
+
+	int getHeadSize() {
+		return headPredicate.size();
+	}
+
+	string getHeadName() {
+		return headPredicate.getName();
+	}
+
+	int getListSize() {
+		return predicateList.size();
+	}
+
+	int getPredicateSize(int i) {
+		return predicateList[i]->size();
+	}
+
+	bool needName() {
+		if (predicateList[predicateList.size() - 1]->getName() == "NULL")
+		{
+			return true;
+		}
+		return false;
 	}
 };
 

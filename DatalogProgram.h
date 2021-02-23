@@ -13,7 +13,7 @@ private:
 	vector <Predicate*> queries;
 	vector <Rule*> rules;
 	vector <Parameter*> domain;
-	Predicate* last;
+
 public:
 	DatalogProgram(){
 		vector <Predicate*> newSchemes;
@@ -26,38 +26,61 @@ public:
 		rules = newRules;
 		vector <Parameter*> newDomain;
 		domain = newDomain;
-		last = new Predicate("NULL");
 	}
 
 	void AddScheme(string id) {
 		schemes.push_back(new Predicate(id));
-		last = schemes[schemes.size() - 1];
 	}
 
 	void AddFact(string id) {
 		facts.push_back(new Predicate(id));
-		last = facts[facts.size() - 1];
 	}
 
 	void AddQuery(string id) {
 		queries.push_back(new Predicate(id));
-		last = queries[queries.size() - 1];
 	}
 
-	void AddRule(Rule* rule) {
-		rules.push_back(rule);
+	void AddRule(string id) {
+		rules.push_back(new Rule(id));
 	}
 
 	void AddID(Token* data) {
-		int i = 0;
-		if (rules.size() < 1) {
-			i = schemes.size() - 1;
-			schemes[i]->AddContents(data);
+		if (schemes[schemes.size() - 1]->getName() == "NULL")
+		{
+			schemes[schemes.size() - 1]->AddName(data->inputString());
 		}
-		else {
-			i = rules.size() - 1;
-			rules[i]->AddID(data);
+		else if (facts.size() < 1)
+		{
+			schemes[schemes.size() - 1]->AddContents(data);
 		}
+		else if (facts[facts.size() - 1]->getName() == "NULL")
+		{
+			facts[facts.size() - 1]->AddName(data->inputString());
+		}
+		else if (rules[rules.size() - 1]->getHeadName() == "NULL")
+		{
+			rules[rules.size() - 1]->AddHeadID(data->inputString());
+		}
+		else if (rules[rules.size() - 1]->getListSize() < 1)
+		{
+			rules[rules.size() - 1]->AddHeadContent(data);
+		}
+		else if (rules[rules.size() - 1]->needName)
+		{
+			rules[rules.size() - 1]->AddID(data->inputString());
+		}
+		else if (queries.size() < 1)
+		{
+			rules[rules.size() - 1]->AddContent(data);
+		}
+		else if (queries[queries.size() - 1]->getName == "NULL")
+		{
+			queries[queries.size() - 1]->AddName(data->inputString())
+		}
+		else if (queries.size() > 0) {
+			queries[queries.size() - 1]->AddContents(data);
+		}
+		cout << "ERROR: Improper ID assignment" << "\n";
 	}
 
 	void AddString(Token* data) {

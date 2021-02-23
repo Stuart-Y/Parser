@@ -16,8 +16,20 @@ public:
 		contents = newContents;
 	}
 
+	void AddName(string id) {
+		this->id = id;
+	}
+
 	void AddContents(Token* data) {
 		contents.push_back(new Parameter(data));
+	}
+
+	int size() {
+		return contents.size();
+	}
+
+	string getName() {
+		return id;
 	}
 
 	string ToString() {
