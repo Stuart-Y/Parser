@@ -11,7 +11,9 @@ private:
 	string id;
 	vector <Parameter*> contents;
 public:
-	Predicate(string id){
+	Predicate(string id)
+	{
+		this->id = id;
 		vector <Parameter*> newContents;
 		contents = newContents;
 	}
