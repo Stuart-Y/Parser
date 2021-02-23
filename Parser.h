@@ -102,7 +102,7 @@ public:
 			startIndex = ParseRule(startIndex);
 			startIndex = ParseRuleList(startIndex);
 		}
-		else if (program[startIndex]->getType() == QUERIES) {
+		else if (program[startIndex-1]->getType() == QUERIES) {
 		}
 		else {
 			throw program[startIndex];
@@ -202,7 +202,7 @@ public:
 			startIndex = ParseFact(startIndex);
 			startIndex = ParseFactList(startIndex);
 		}
-		else if (program[startIndex]->getType() == PERIOD) {
+		else if (program[startIndex-1]->getType() == PERIOD) {
 		}
 		else {
 			throw program[startIndex];
@@ -255,7 +255,7 @@ public:
 			startIndex = ParseScheme(startIndex);
 			startIndex = ParseschemeList(startIndex);
 		}
-		else if (program[startIndex-1]->getType() == RIGHT_PAREN) {
+		else if (program[startIndex-1F]->getType() == RIGHT_PAREN) {
 		}
 		else {
 			throw program[startIndex];
