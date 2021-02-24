@@ -86,7 +86,17 @@ public:
 	}
 
 	void AddString(Token* data) {
-		facts[facts.size() - 1]->AddContents(data);
+		if (rules.size() < 1) 
+		{
+			facts[facts.size() - 1]->AddContents(data);
+		}
+		else if (queries.size() < 1)
+		{
+			rules[rules.size() - 1]->AddContent(data);
+		}
+		else {
+			queries[queries.size() - 1]->AddContents(data);
+		}
 	}
 
 	void AddPredicate(Token* data) {
