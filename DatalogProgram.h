@@ -93,9 +93,11 @@ public:
 			bool addTo = true;
 			facts[facts.size() - 1]->AddContents(data);
 			set <string>::iterator at = domain.begin();
+			string check;
 			for (unsigned int i = 0; i < domain.size(); i++)
 			{
-				if (*at.compare(data->inputString()) == 0) {
+				check = *at;
+				if (check.compare(data->inputString()) == 0) {
 					addTo = false;
 				}
 				at++;
