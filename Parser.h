@@ -88,7 +88,6 @@ public:
 
 	int ParseQuery(int startIndex) {
 		if (program[startIndex]->getType() == ID) {
-			cout << "should not succeed";
 			out.AddQuery("NULL");
 			startIndex = ParsePredicate(startIndex);
 			startIndex = ParseQuestion(startIndex);
@@ -105,7 +104,6 @@ public:
 			startIndex = ParseRuleList(startIndex);
 		}
 		else if (program[startIndex]->getType() == QUERIES) {
-			cout << "bool proper";
 		}
 		else {
 			throw program[startIndex];
@@ -115,7 +113,6 @@ public:
 
 	int ParseRule(int startIndex) {
 		if (program[startIndex]->getType() == ID) {
-			cout << "double fail";
 			out.AddRule("NULL");
 			startIndex = ParseHeadPredicate(startIndex);
 			startIndex = ParseColonDash(startIndex);
@@ -209,7 +206,10 @@ public:
 		}
 		else if (program[startIndex-1]->getType() == PERIOD) {
 		}
-		else {
+		else if(program[startIndex]->getType() == RULES){
+
+		}
+		else{
 			throw program[startIndex];
 		}
 		return startIndex;
