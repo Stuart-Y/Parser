@@ -89,7 +89,10 @@ public:
 	}
 
 	void AddString(Token* data) {
-		if (rules.size() < 1) 
+		if (queries.size() != 0) {
+			queries[queries.size() - 1]->AddContents(data);
+		}
+		else if (rules.size() < 1) 
 		{
 			bool addTo = true;
 			facts[facts.size() - 1]->AddContents(data);
@@ -111,9 +114,6 @@ public:
 		else if (queries.size() < 1)
 		{
 			rules[rules.size() - 1]->AddContent(data);
-		}
-		else {
-			queries[queries.size() - 1]->AddContents(data);
 		}
 	}
 
