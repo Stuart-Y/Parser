@@ -125,7 +125,7 @@ public:
 		else
 		{
 			i = queries.size() - 1;
-			queries[i]->AddName(data->inputString);
+			queries[i]->AddName(data->inputString());
 		}
 	}
 
