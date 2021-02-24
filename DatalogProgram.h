@@ -49,37 +49,46 @@ public:
 	void AddID(Token* data) {
 		if (schemes[schemes.size() - 1]->getName() == "NULL" && queries.size() == 0)
 		{
+			cout << "case 1";
 			schemes[schemes.size() - 1]->AddName(data->inputString());
 		}
 		else if (facts.size() < 1 && queries.size() == 0)
 		{
+			cout << "case 2";
 			schemes[schemes.size() - 1]->AddContents(data);
 		}
-		else if (facts[facts.size() - 1]->getName() == "NULL" && queries.size() ==0)
+		else if (facts[facts.size() - 1]->getName() == "NULL" && queries.size() == 0)
 		{
+			cout << "case 3";
 			facts[facts.size() - 1]->AddName(data->inputString());
 		}
 		else if (rules[rules.size() - 1]->getHeadName() == "NULL" && queries.size() == 0)
 		{
+			cout << "case 4";
 			rules[rules.size() - 1]->AddHeadID(data->inputString());
 		}
 		else if (rules[rules.size() - 1]->getListSize() < 1 && queries.size() == 0)
 		{
+			cout << "case 5";
 			rules[rules.size() - 1]->AddHeadContent(data);
 		}
 		else if (rules[rules.size() - 1]->needName() && queries.size() == 0)
 		{
+			cout << "case 6";
 			rules[rules.size() - 1]->AddID(data->inputString());
 		}
 		else if (queries.size() == 0 )
 		{
+			cout << "case 7";
 			rules[rules.size() - 1]->AddContent(data);
 		}
 		else if (queries[queries.size() - 1]->getName() == "NULL")
 		{
+			cout << "case 8"
 			queries[queries.size() - 1]->AddName(data->inputString());
 		}
 		else if (queries.size() > 0) {
+			cout << "case 9";
 			queries[queries.size() - 1]->AddContents(data);
 		}
 		else {
@@ -118,7 +127,8 @@ public:
 
 	void AddPredicate(Token* data) {
 		int i = 0;
-		if (queries.size() < 1) {
+		if (queries.size() == 0) {
+			cout << "whoops"
 			i = rules.size() - 1;
 			rules[i]->AddPredicate(data->inputString());
 		}
@@ -126,6 +136,7 @@ public:
 		{
 			i = queries.size() - 1;
 			queries[i]->AddName(data->inputString());
+			cout << "made it"
 		}
 	}
 
