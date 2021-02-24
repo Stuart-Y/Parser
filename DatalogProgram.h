@@ -125,7 +125,7 @@ public:
 		else
 		{
 			i = queries.size() - 1;
-			Predicate add = Predicate(data->inputString());
+			queries[i]->AddName(data->inputString);
 		}
 	}
 

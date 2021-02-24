@@ -39,7 +39,7 @@ public:
 			i = ParseEndfile(i);
 		}
 		catch (Token* reject) {
-			cerr << "Failure" << "\n" << "  " << reject->toString();
+			cerr << "Failure!" << "\n" << "  " << reject->toString();
 			throw reject;
 			return out;
 		}
@@ -88,6 +88,7 @@ public:
 
 	int ParseQuery(int startIndex) {
 		if (program[startIndex]->getType() == ID) {
+			cout << "should not succeed";
 			out.AddQuery("NULL");
 			startIndex = ParsePredicate(startIndex);
 			startIndex = ParseQuestion(startIndex);
@@ -104,6 +105,7 @@ public:
 			startIndex = ParseRuleList(startIndex);
 		}
 		else if (program[startIndex]->getType() == QUERIES) {
+			cout << "bool proper";
 		}
 		else {
 			throw program[startIndex];
@@ -113,6 +115,7 @@ public:
 
 	int ParseRule(int startIndex) {
 		if (program[startIndex]->getType() == ID) {
+			cout << "double fail";
 			out.AddRule("NULL");
 			startIndex = ParseHeadPredicate(startIndex);
 			startIndex = ParseColonDash(startIndex);
