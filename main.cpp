@@ -38,7 +38,6 @@ int main(int argc, char* argv[])
     input.close();
 
     lexInput = program.Run(file);
-    cout << lexInput.size() <<"\n";
 
     for (unsigned int i = 0; i < lexInput.size(); i++)
     {
@@ -48,8 +47,6 @@ int main(int argc, char* argv[])
             i--;
         }
     }
-
-    cout << lexInput.size() << "\n";
 
     Parser read = Parser(lexInput);
     try {
