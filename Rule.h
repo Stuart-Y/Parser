@@ -40,7 +40,7 @@ public:
 	string ToString(){
 		string out;
 		out = headPredicate.ToString();
-	out = out + ") :- ";
+	out = out + " :- ";
 	for (unsigned int i = 0; i < predicateList.size(); i++)
 	{
 		out = out + predicateList[i]->ToString();

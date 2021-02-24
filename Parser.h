@@ -425,8 +425,8 @@ public:
 
 	int ParseString(int startIndex) {
 		if (program[startIndex]->getType() == STRING){
-			startIndex++;
 			out.AddString(program[startIndex]);
+			startIndex++;
 		}
 		else {
 			throw program[startIndex];
