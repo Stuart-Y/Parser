@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <string>
 
 #include "Token.h"
 #include "Predicate.h"
@@ -88,7 +89,18 @@ public:
 	void AddString(Token* data) {
 		if (rules.size() < 1) 
 		{
+			bool addTo = true;
 			facts[facts.size() - 1]->AddContents(data);
+			for (unsigned int i = 0; i < domain.size(); i++)
+			{
+				if (domain[i]->ToString.compare(data->inputString()) == 0) {
+					addTo = false;
+				}
+			}
+			if (addTo)
+			{
+				domain.push_back(data);
+			}
 		}
 		else if (queries.size() < 1)
 		{
