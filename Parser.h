@@ -354,7 +354,7 @@ public:
 
 	int ParseMultiply(int startIndex) {
 		if (program[startIndex]->getType() == MULTIPLY) {
-			out.AddParameter(startIndex);
+			out.AddParameter(program[startIndex]);
 			startIndex++;
 		}
 		else {
@@ -365,7 +365,7 @@ public:
 
 	int ParseAdd(int startIndex) {
 		if (program[startIndex]->getType() == ADD) {
-			out.AddParameter(startIndex);
+			out.AddParameter(program[startIndex]);
 			startIndex++;
 		}
 		else {
