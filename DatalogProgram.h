@@ -71,7 +71,7 @@ public:
 		{
 			rules[rules.size() - 1]->AddID(data->inputString());
 		}
-		else if (queries.size() < 1 )
+		else if (queries.size() == 0 )
 		{
 			rules[rules.size() - 1]->AddContent(data);
 		}
