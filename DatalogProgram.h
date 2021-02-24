@@ -84,7 +84,7 @@ public:
 		}
 		else if (queries[queries.size() - 1]->getName() == "NULL")
 		{
-			cout << "case 8"
+			cout << "case 8";
 			queries[queries.size() - 1]->AddName(data->inputString());
 		}
 		else if (queries.size() > 0) {
@@ -128,7 +128,6 @@ public:
 	void AddPredicate(Token* data) {
 		int i = 0;
 		if (queries.size() == 0) {
-			cout << "whoops"
 			i = rules.size() - 1;
 			rules[i]->AddPredicate(data->inputString());
 		}
@@ -136,7 +135,6 @@ public:
 		{
 			i = queries.size() - 1;
 			queries[i]->AddName(data->inputString());
-			cout << "made it"
 		}
 	}
 
