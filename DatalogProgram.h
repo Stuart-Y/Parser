@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
+#include <set>
 
 #include "Token.h"
 #include "Predicate.h"
@@ -13,7 +14,7 @@ private:
 	vector <Predicate*> facts;
 	vector <Predicate*> queries;
 	vector <Rule*> rules;
-	vector <Parameter*> domain;
+	set <string> domain;
 
 public:
 	DatalogProgram(){
@@ -25,7 +26,7 @@ public:
 		queries = newQueries;
 		vector <Rule*> newRules;
 		rules = newRules;
-		vector <Parameter*> newDomain;
+		set<string> newDomain;
 		domain = newDomain;
 	}
 
@@ -93,13 +94,13 @@ public:
 			facts[facts.size() - 1]->AddContents(data);
 			for (unsigned int i = 0; i < domain.size(); i++)
 			{
-				if (domain[i]->ToString.compare(data->inputString()) == 0) {
+				if (domain[i]->ToString().compare(data->inputString()) == 0) {
 					addTo = false;
 				}
 			}
 			if (addTo)
 			{
-				domain.push_back(data);
+				domain.insert(data->inputString());
 			}
 		}
 		else if (queries.size() < 1)
@@ -159,10 +160,11 @@ public:
 		{
 			out = out + "\n" + "  " + queries[i]->ToString() + "?"; 
 		}
-		out = out + "\n" + "Domain(" + to_string(domain.size()) +"):";
+		out = out + "\n" + "Domain(" + to_string(domain.max_size()) +"):";
 		for (unsigned int i = 0; i < domain.size(); i++) {
-			out = out + "\n" + domain[i]->ToString();
+			out = out + "\n" + domain[i];
 		}
+		out = out + "\n";
 		return out;
 	}
 
