@@ -47,11 +47,11 @@ public:
 	}
 
 	void AddID(Token* data) {
-		if (schemes[schemes.size() - 1]->getName() == "NULL")
+		if (schemes[schemes.size() - 1]->getName() == "NULL" && queries.size() == 0)
 		{
 			schemes[schemes.size() - 1]->AddName(data->inputString());
 		}
-		else if (facts.size() < 1)
+		else if (facts.size() < 1 && queries.size() == 0)
 		{
 			schemes[schemes.size() - 1]->AddContents(data);
 		}
