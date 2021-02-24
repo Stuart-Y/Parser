@@ -59,19 +59,19 @@ public:
 		{
 			facts[facts.size() - 1]->AddName(data->inputString());
 		}
-		else if (rules[rules.size() - 1]->getHeadName() == "NULL")
+		else if (rules[rules.size() - 1]->getHeadName() == "NULL" && queries.size() == 0)
 		{
 			rules[rules.size() - 1]->AddHeadID(data->inputString());
 		}
-		else if (rules[rules.size() - 1]->getListSize() < 1)
+		else if (rules[rules.size() - 1]->getListSize() < 1 && queries.size() == 0)
 		{
 			rules[rules.size() - 1]->AddHeadContent(data);
 		}
-		else if (rules[rules.size() - 1]->needName())
+		else if (rules[rules.size() - 1]->needName() && queries.size() == 0)
 		{
 			rules[rules.size() - 1]->AddID(data->inputString());
 		}
-		else if (queries.size() < 1)
+		else if (queries.size() < 1 )
 		{
 			rules[rules.size() - 1]->AddContent(data);
 		}
