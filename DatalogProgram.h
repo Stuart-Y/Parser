@@ -164,7 +164,7 @@ public:
 		{
 			out = out + "\n" + "  " + queries[i]->ToString() + "?"; 
 		}
-		out = out + "\n" + "Domain(" + to_string(domain.max_size()) +"):";
+		out = out + "\n" + "Domain(" + to_string(domain.size()) +"):";
 		set <string>::iterator at = domain.begin();
 		for (unsigned int i = 0; i < domain.size(); i++) {
 			out = out + "\n" + *at;
