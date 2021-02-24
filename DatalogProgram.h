@@ -55,7 +55,7 @@ public:
 		{
 			schemes[schemes.size() - 1]->AddContents(data);
 		}
-		else if (facts[facts.size() - 1]->getName() == "NULL")
+		else if (facts[facts.size() - 1]->getName() == "NULL" && queries.size() ==0)
 		{
 			facts[facts.size() - 1]->AddName(data->inputString());
 		}
