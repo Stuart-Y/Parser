@@ -128,7 +128,6 @@ public:
 
 	int ParseHeadPredicate(int startIndex) {
 		if (program[startIndex]->getType() == ID) {
-			out.AddPredicate(program[startIndex]);
 			startIndex = ParseID(startIndex);
 			startIndex = ParseLeft(startIndex);
 			startIndex = ParseID(startIndex);
