@@ -142,8 +142,8 @@ public:
 
 	int ParsePredicate(int startIndex) {
 		if (program[startIndex]->getType() == ID) {
-			out.AddPredicate("NULL");
-			startIndex = ParseID(startIndex);
+			out.AddPredicate(startIndex);
+			startindex++;
 			startIndex = ParseLeft(startIndex);
 			startIndex = ParseParameter(startIndex);
 			startIndex = ParseParameterList(startIndex);
