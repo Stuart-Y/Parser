@@ -92,11 +92,13 @@ public:
 		{
 			bool addTo = true;
 			facts[facts.size() - 1]->AddContents(data);
+			set <string>::iterator at = domain.begin();
 			for (unsigned int i = 0; i < domain.size(); i++)
 			{
-				if (domain[i]->ToString().compare(data->inputString()) == 0) {
+				if (*at.compare(data->inputString()) == 0) {
 					addTo = false;
 				}
+				at++;
 			}
 			if (addTo)
 			{
@@ -161,8 +163,10 @@ public:
 			out = out + "\n" + "  " + queries[i]->ToString() + "?"; 
 		}
 		out = out + "\n" + "Domain(" + to_string(domain.max_size()) +"):";
+		set <string>::iterator at = domain.begin();
 		for (unsigned int i = 0; i < domain.size(); i++) {
-			out = out + "\n" + domain[i];
+			out = out + "\n" + *at;
+			at++;
 		}
 		out = out + "\n";
 		return out;
